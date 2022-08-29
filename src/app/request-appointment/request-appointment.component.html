@@ -1,0 +1,61 @@
+<div class="centered_div" style="min-width:1300px">
+  <form >
+    <table style="width:100%;float:left">
+      <tr>
+        <td>
+          <input type="text" formControlName="patFName" class="patRqForm patNameSpecial" value="" placeholder="First name" required>
+        </td>
+        <td>
+          <input type="text" formControlName="patLName" class="patRqForm patNameSpecial" value="" placeholder="Last name"required>
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td>
+          <input type="email" formControlName="patEmail" class="patRqForm" value="" placeholder="Email address" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="tel" formControlName="patPhone" class="patRqForm" value="" placeholder="Phone number"required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" formControlName="patHomeAddress" class="patRqForm" value="" placeholder="Home address" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <textarea formControlName="patProblem" class="patRqForm patRqTextarea" rows="8" cols="80" placeholder="Enter your problem here..." required></textarea>
+        </td>
+      </tr>
+    </table>
+    <table style="width:100%">
+      <tr>
+        <td>
+          <input type="date" formControlName="patDate" class="patRqForm patNameSpecial" value="">
+        </td>
+        <td>
+          <select formControlName="patSelectDaytime" class="patRqFormDaytime patNameSpecial" placeholder="Select daytime">
+            <option value="" disabled selected hidden>Choose prefered daytime:</option>
+            <option value="optAny" class="selectOpt">Any</option>
+            <option value="optMorning" class="selectOpt">Morning</option>
+            <option value="optNoon" class="selectOpt">Noon</option>
+            <option value="optEvening" class="selectOpt">Evening</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="checkAppP">Remember: you are not CREATING an appointment, but rather you are requesting one.
+            Someone from our office will contact you later via a phone call to finish your appointment.</p>
+        </td>
+        <td>
+          <button type="button" name="patRqFormBtn" class="button patRequestAppBtn" (click)="requestAppointment()">Request appointment</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>

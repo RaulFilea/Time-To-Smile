@@ -1,0 +1,30 @@
+<div class="centered_div">
+  <form name="checkAppointments" [formGroup]="checkAppForm" *ngIf="checkAppForm">
+    <table>
+      <tr>
+        <td>
+          <p class="checkAppP">
+            Enter your e-mail address below and we will send you an e-mail
+            with all your appointments, if any. However you can request an
+            appointment by pressing the button below.
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="email" name="emailAdress" class="patEmailCheck" placeholder="contact@dentalmed.com" formControlName="email">
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td>
+          <button class="button patCheckAppBtn" (click)="validateForm()">Check My Appointments</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+  <a routerLink="/request_appointment" routerLinkActive="active" ariaCurrentWhenActive="page">
+    <button class="button patRequestAppBtn">Request New Appointment</button>
+  </a>
+</div>

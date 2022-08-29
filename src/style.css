@@ -46,13 +46,13 @@ body {
 }
 
 .patEmailCheck:hover::placeholder {
-  color: rgba(255, 255, 255, .5);
-  transition-duration: .5s;
+    color: rgba(255, 255, 255, .5);
+    transition-duration: .5s;
 }
 
 .patEmailCheck:focus::placeholder {
-  color: transparent;
-  transition-duration: .5s;
+    color: transparent;
+    transition-duration: .5s;
 }
 
 .patEmailCheck {
@@ -189,7 +189,7 @@ body {
 }
 
 .docHomeBtn {
-  font-size: 40px;
+    font-size: 40px;
 }
 
 .docHomeNew:hover {
