@@ -1,0 +1,58 @@
+<div class="centered_div" style="min-width:1300px">
+  <form class="" action="index.html" method="post">
+    <table style="width:100%;float:left">
+      <tr>
+        <td>
+          <input type="text" name="patFName" class="patRqForm patNameSpecial" value="" placeholder="First name" required>
+        </td>
+        <td>
+          <input type="text" name="patLName" class="patRqForm patNameSpecial" value="" placeholder="Last name" required>
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td>
+          <input type="email" name="patEmail" class="patRqForm" value="" placeholder="Email address" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="tel" name="patPhone" class="patRqForm" value="" placeholder="Phone number" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" name="patHomeAddress" class="patRqForm" value="" placeholder="Home address" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <textarea name="patProblem" class="patRqForm patRqTextarea" rows="8" cols="80" placeholder="Enter patient's problem here..." required></textarea>
+        </td>
+      </tr>
+    </table>
+    <table style="width:100%">
+      <tr>
+        <td>
+          <input type="date" name="patDate" class="patRqForm patNameSpecial" value="">
+        </td>
+        <td>
+<!--          TODO: hour instead of daytime     -->
+          <select name="patSelectDaytime" class="patRqFormDaytime patNameSpecial" placeholder="Select daytime">
+            <option value="" disabled selected hidden>Choose preferred daytime:</option>
+            <option value="optAny" class="selectOpt">Any</option>
+            <option value="optMorning" class="selectOpt">Morning</option>
+            <option value="optNoon" class="selectOpt">Noon</option>
+            <option value="optEvening" class="selectOpt">Evening</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button type="button" name="patRqFormBtn" class="button patRequestAppBtn" (click)="saveAppointment()">Save appointment</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>

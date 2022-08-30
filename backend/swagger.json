@@ -1,0 +1,433 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "The backend for Time To Smile.",
+    "version": "0.0.1",
+    "title": "Online Shop"
+  },
+  "host": "localhost:3000",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "appointments",
+      "description": "Appointment operations"
+    },
+    {
+      "name": "patients",
+      "description": "Patient operations"
+    },
+    {
+      "name": "doctors",
+      "description": "Doctors operations"
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/appointments": {
+      "get": {
+        "tags": [
+          "appointments"
+        ],
+        "summary": "Read all appointments from the list",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Appointment"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "appointments"
+        ],
+        "summary": "Add a new appointment to the list",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Appointment object to be added to the list",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Appointment"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "$ref": "#/definitions/Appointment"
+            }
+          }
+        }
+      }
+    },
+    "/appointments/{id}": {
+      "get": {
+        "tags": [
+          "appointments"
+        ],
+        "summary": "Reads an appointment from the list",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The appointment ID",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "$ref": "#/definitions/Appointment"
+            }
+          },
+          "404": {
+            "description": "Appointment not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "appointments"
+        ],
+        "summary": "Updates an appointment from the list",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The appointment ID",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Appointment to be updated",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Appointment"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful operation"
+          },
+          "404": {
+            "description": "Appointment not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "appointments"
+        ],
+        "summary": "Deletes an appointment from the list",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The appointment ID",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "successful operation"
+          },
+          "404": {
+            "description": "Appointment not found"
+          }
+        }
+      }
+    },
+    "/login": {
+      "post": {
+        "tags": [
+          "doctors"
+        ],
+        "summary": "Login only for doctors",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "User credentials",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Credentials"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          "401": {
+            "description": "Username or password is incorrect"
+          }
+        }
+      }
+    },
+    "/patients": {
+      "get": {
+        "tags": [
+          "patients"
+        ],
+        "summary": "Retrieve all the patients",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Appointment"
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "patients"
+        ],
+        "summary": "Add new patient",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Patient details",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Patient"
+            }
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Successful operation"
+          },
+          "401": {
+            "description": "Patient not found"
+          }
+        }
+      }
+    },
+    "/patients/{id}": {
+      "get": {
+        "tags": [
+          "patients"
+        ],
+        "summary": "Retrieves one patient",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The patient ID",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "schema": {
+              "$ref": "#/definitions/Patient"
+            }
+          },
+          "404": {
+            "description": "Patient not found"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "patients"
+        ],
+        "summary": "Updates details for a patient",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The patient ID",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Patient to be updated",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/Patient"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful operation"
+          },
+          "404": {
+            "description": "Patient not found"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "patients"
+        ],
+        "summary": "Deletes a details for a patient",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "description": "The patient ID",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Successful operation"
+          },
+          "404": {
+            "description": "Patient not found"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Appointment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "example": 123
+        },
+        "date": {
+          "type": "string",
+          "example": "20-12-2022"
+        },
+        "time": {
+          "type": "string",
+          "example": "10:30"
+        },
+        "patient_id": {
+          "type": "integer",
+          "format": "int64",
+          "example": 150
+        }
+      }
+    },
+    "Credentials": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string",
+          "example": "doej"
+        },
+        "password": {
+          "type": "string",
+          "example": "password"
+        }
+      }
+    },
+    "Patient": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64",
+          "example": 123
+        },
+        "first_name": {
+          "type": "string",
+          "example": "John"
+        },
+        "last_name": {
+          "type": "string",
+          "example": "doe"
+        },
+        "email": {
+          "type": "string",
+          "example": "contact@dentalmed.com"
+        },
+        "phone": {
+          "type": "string",
+          "example": "+40712345678"
+        },
+        "address": {
+          "type": "string",
+          "example": "Main Street 1, Lugoj, Timis"
+        },
+        "problem": {
+          "type": "string",
+          "example": "Racist"
+        }
+      }
+    },
+    "User": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string",
+          "example": "doej"
+        },
+        "fullName": {
+          "type": "string",
+          "example": "John Doe"
+        },
+        "roles": {
+          "type": "array",
+          "example": [
+            "user",
+            "customer",
+            "admin"
+          ],
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
