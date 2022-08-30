@@ -12,18 +12,19 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-function appToHeader({ id, date, time, patient_id }) {
-  return { id, date, time, patient_id };
+function appToHeader({ id, date, time, patient_id, confirmed }) {
+  const name = patients[patient_id].name;
+  return { id, date, time, patient_id, confirmed, name };
 }
-function appCopy(id, { date, time, patient_id }) {
-  return { id, date, time, patient_id };
+function appCopy(id, { date, time, patient_id, confirmed }) {
+  return { id, date, time, patient_id, confirmed };
 }
 
-function patToHeader ({id, first_name, last_name, email, phone, address, problem}) {
-  return {id, first_name, last_name, email, phone, address, problem};
+function patToHeader ({id, name, email, phone, address, problem}) {
+  return {id, name, email, phone, address, problem};
 }
-function patCopy (id, {first_name, last_name, email, phone, address, problem}) {
-  return {id, first_name, last_name, email, phone, address, problem};
+function patCopy (id, {name, email, phone, address, problem}) {
+  return {id, name, email, phone, address, problem};
 }
 
 let nextId =
@@ -84,6 +85,14 @@ app.post("/login", function (req, res) {
 });
 
 app.get("/patients", function (_, res) {
+  res.send(
+    Object.values(patients)
+      .sort((a, b) => a.id - b.id)
+      .map(patToHeader)
+  );
+});
+
+app.get("/patients/:name", function (req, res) {
   res.send(
     Object.values(patients)
       .sort((a, b) => a.id - b.id)

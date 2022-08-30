@@ -1,5 +1,5 @@
 body {
-  background-image: url('./app/Shared/about-our-office-1024x684.jpg');
+  background-image: url('./app/Shared/image.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -83,6 +83,16 @@ body {
   font-weight: bold;
   background-color: #f9ba00;
   color: #0a1d3d;
+  border: none;
+  height: 60px;
+}
+
+.deletePatient {
+  color: inherit;
+  font-size: 30px;
+  font-weight: bold;
+  background-color: rgba(255, 0, 0, 0.55);
+  color: #ffffff;
   border: none;
   height: 60px;
 }
@@ -201,3 +211,6 @@ body {
   background-color: #f9ba00;
   color:#0a1d3d;
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

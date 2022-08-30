@@ -1,10 +1,8 @@
 export interface Patient {
-  fname: string;
-  lname: string;
+  id?: number;
+  name: string;
   email: string;
   phone: string;
   address: string;
   problem: string;
-  date: string;
-  daytime: string;
 }

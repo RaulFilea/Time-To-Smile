@@ -1,0 +1,27 @@
+/* Structure */
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.example-button-row {
+  display: table-cell;
+  width: 20px;
+}
+
+.example-button-row .mat-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.make-red {
+  background-color: rgba(255, 0, 0, 0.55);
+}
+
+td, th {
+  text-align: center !important;
+  vertical-align: middle !important;
+}

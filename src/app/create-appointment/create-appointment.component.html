@@ -1,56 +1,39 @@
 <div class="centered_div" style="min-width:1300px">
-  <form class="" action="index.html" method="post">
-    <table style="width:100%;float:left">
-      <tr>
-        <td>
-          <input type="text" name="patFName" class="patRqForm patNameSpecial" value="" placeholder="First name" required>
-        </td>
-        <td>
-          <input type="text" name="patLName" class="patRqForm patNameSpecial" value="" placeholder="Last name" required>
-        </td>
-      </tr>
-    </table>
-    <table>
-      <tr>
-        <td>
-          <input type="email" name="patEmail" class="patRqForm" value="" placeholder="Email address" required>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input type="tel" name="patPhone" class="patRqForm" value="" placeholder="Phone number" required>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <input type="text" name="patHomeAddress" class="patRqForm" value="" placeholder="Home address" required>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <textarea name="patProblem" class="patRqForm patRqTextarea" rows="8" cols="80" placeholder="Enter patient's problem here..." required></textarea>
-        </td>
-      </tr>
-    </table>
+  <form [formGroup]="patientForm">
+    <mat-form-field appearance="fill">
+      <mat-label>All Patients</mat-label>
+      <input type="text"
+             matInput
+             formControlName="patientGroup"
+             required
+             [matAutocomplete]="autoGroup">
+      <mat-autocomplete #autoGroup="matAutocomplete" (optionSelected)="optionSelected($event)">
+        <mat-optgroup *ngFor="let group of patientGroupOptions | async" [label]="group.letter">
+          <mat-option *ngFor="let name of group.names" [value]="name">
+            {{name}}
+          </mat-option>
+        </mat-optgroup>
+      </mat-autocomplete>
+    </mat-form-field>
     <table style="width:100%">
       <tr>
         <td>
-          <input type="date" name="patDate" class="patRqForm patNameSpecial" value="">
-        </td>
-        <td>
-<!--          TODO: hour instead of daytime     -->
-          <select name="patSelectDaytime" class="patRqFormDaytime patNameSpecial" placeholder="Select daytime">
-            <option value="" disabled selected hidden>Choose preferred daytime:</option>
-            <option value="optAny" class="selectOpt">Any</option>
-            <option value="optMorning" class="selectOpt">Morning</option>
-            <option value="optNoon" class="selectOpt">Noon</option>
-            <option value="optEvening" class="selectOpt">Evening</option>
-          </select>
+          <textarea formControlName="patProblem" class="patRqForm patRqTextarea" rows="8" cols="80" placeholder="Enter your problem here..." required></textarea>
         </td>
       </tr>
       <tr>
         <td>
-          <button type="button" name="patRqFormBtn" class="button patRequestAppBtn" (click)="saveAppointment()">Save appointment</button>
+          <input type="date" formControlName="patDate" class="patRqForm patNameSpecial" value="">
+        </td>
+        <td>
+          <input type="time" id="appt" formControlName="patTime" class="patRqForm">
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button type="button" name="patRqFormBtn" class="button patRequestAppBtn" (click)="saveAppointment()">Save
+            appointment
+          </button>
         </td>
       </tr>
     </table>

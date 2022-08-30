@@ -1,8 +1,7 @@
 {
   "0": {
     "id": 0,
-    "first_name": "Raul",
-    "last_name": "Filea",
+    "name": "Raul Filea",
     "email": "test@gmail.com",
     "phone": "0782916384",
     "address": "Magnoliei 11, Lugoj, Timis",
@@ -10,17 +9,15 @@
   },
   "1": {
     "id": 1,
-    "first_name": "Denis",
-    "last_name": "Filea",
+    "name": "Denis Filea",
     "email": "test@gmail.com",
     "phone": "0723916384",
     "address": "Magnoliei 11, Lugoj, Timis",
     "problem": "Can't hear well"
   },
-  "3": {
-    "id": 3,
-    "first_name": "Daniel",
-    "last_name": "Procop",
+  "2": {
+    "id": 2,
+    "name": "Daniel Procop",
     "email": "test@gmail.com",
     "phone": "0782346384",
     "address": "--",

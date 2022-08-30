@@ -31,14 +31,11 @@ export class RequestAppointmentComponent implements OnInit {
   requestAppointment() {
     if(this.requestAppForm?.valid) {
       this.patient = {
-        fname: this.requestAppForm?.value.fname,
-        lname: this.requestAppForm?.value.lname,
+        name: this.requestAppForm?.value.name,
         email: this.requestAppForm?.value.email,
         phone: this.requestAppForm?.value.phone,
         address: this.requestAppForm?.value.address,
         problem: this.requestAppForm?.value.problem,
-        date: this.requestAppForm?.value.date,
-        daytime: this.requestAppForm?.value.daytime
       }
       //TODO:store
       //TODO:alert

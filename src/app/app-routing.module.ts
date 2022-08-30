@@ -6,10 +6,12 @@ import { RequestAppointmentComponent } from './request-appointment/request-appoi
 import { LoginComponent } from './login/login.component';
 import { DocHomeComponent } from './doc-home/doc-home.component';
 import { CreateAppointmentComponent } from './create-appointment/create-appointment.component';
-import { FilterComponent } from './filter/filter.component';
+import { FilterTableComponent } from './filter-table/filter-table.component';
+import {ManagePatientsComponent} from "./manage-patients/manage-patients.component";
 
 //TODO: activate login guard
 const routes: Routes = [
+  { path: 'filtering', component: FilterTableComponent },
   { path: 'login', component: LoginComponent, title: 'Login' },
   { path: 'home', component: HomeComponent, title: 'Home' },
   {
@@ -28,7 +30,8 @@ const routes: Routes = [
     component: CreateAppointmentComponent,
     title: 'Create Appointment',
   },
-  { path: 'filter', component: FilterComponent, title: 'Filter Appointments' },
+  { path: 'appointments/:id', component: FilterTableComponent, title: 'Modify Appointment' },
+  { path: 'patients', component: ManagePatientsComponent, title: 'Manage Patients' },
   { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];
 

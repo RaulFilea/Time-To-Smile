@@ -1,20 +1,37 @@
 {
   "0": {
     "id": 0,
-    "date": "01-01-2001",
+    "date": "2023-01-01",
     "time": "10:30",
-    "patient_id": 1
+    "patient_id": 1,
+    "confirmed": true
   },
   "1": {
     "id": 1,
-    "date": "01-01-2021",
+    "date": "2021-02-12",
     "time": "11:30",
-    "patient_id": 1
+    "patient_id": 1,
+    "confirmed": true
   },
   "2": {
     "id": 2,
-    "date": "01-01-2022",
+    "date": "2022-01-01",
     "time": "12:30",
-    "patient_id": 3
+    "patient_id": 2,
+    "confirmed": false
+  },
+  "3": {
+    "id": 3,
+    "date": "2022-08-30",
+    "time": "12:30",
+    "patient_id": 2,
+    "confirmed": true
+  },
+  "4": {
+    "id": 4,
+    "date": "2022-08-30",
+    "time": "12:30",
+    "patient_id": 2,
+    "confirmed": false
   }
 }
