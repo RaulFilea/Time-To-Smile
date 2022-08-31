@@ -74,6 +74,15 @@ app.delete("/appointments/:id", function (req, res) {
   }
 });
 
+app.post("/email-appointments", function (req, res) {
+  const patient = Object.values(patients).find(p => p.email === req.body.email);
+  if (patient !== undefined) {
+    res.send(Object.values(appointments).filter(a => a.patient_id === patient.id));
+  } else {
+    res.sendStatus(404);
+  }
+});
+
 app.post("/login", function (req, res) {
   const user = users[req.body.username];
   if (user && user.password === req.body.password) {
@@ -85,14 +94,6 @@ app.post("/login", function (req, res) {
 });
 
 app.get("/patients", function (_, res) {
-  res.send(
-    Object.values(patients)
-      .sort((a, b) => a.id - b.id)
-      .map(patToHeader)
-  );
-});
-
-app.get("/patients/:name", function (req, res) {
   res.send(
     Object.values(patients)
       .sort((a, b) => a.id - b.id)
@@ -130,6 +131,16 @@ app.delete("/patients/:id", function (req, res) {
     res.sendStatus(204);
   } else {
     res.sendStatus(404);
+  }
+});
+
+app.post('/login', function (req, res) {
+  const user = users[req.body.username];
+  if (user && user.password === req.body.password) {
+    const {password, ...withoutPassword} = user;
+    res.send(withoutPassword)
+  } else {
+    res.sendStatus(401);
   }
 });
 

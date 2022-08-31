@@ -1,0 +1,66 @@
+<div class="centered_div" style="min-width:1300px">
+  <form [formGroup]="patientForm">
+    <mat-form-field appearance="fill">
+      <mat-label>All Patients</mat-label>
+      <input type="text"
+             matInput
+             formControlName="patientGroup"
+             [matAutocomplete]="autoGroup"
+             (change)="unselectPat($event)"
+      >
+      <mat-autocomplete #autoGroup="matAutocomplete" (optionSelected)="optionSelected($event)">
+        <mat-optgroup *ngFor="let group of patientGroupOptions | async" [label]="group.letter">
+          <mat-option *ngFor="let name of group.names" [value]="name">
+            {{name}}
+          </mat-option>
+        </mat-optgroup>
+      </mat-autocomplete>
+    </mat-form-field>
+    <table>
+      <tr>
+        <td>
+          <input type="text" formControlName="patName" class="patRqForm" value=""
+                 placeholder="Full name" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="email" formControlName="patEmail" class="patRqForm" value="" placeholder="Email address"
+                 required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="tel" formControlName="patPhone" class="patRqForm" value="" placeholder="Phone number" required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="text" formControlName="patHomeAddress" class="patRqForm" value="" placeholder="Home address"
+                 required>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <textarea formControlName="patProblem" class="patRqForm patRqTextarea" rows="8" cols="80"
+                    placeholder="Enter your problem here..." required></textarea>
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr>
+        <td>
+          <button type="button" name="patRqFormBtn" class="button patRequestAppBtn" (click)="savePatDetails()">
+            {{patient.id != -1 && this.patientForm.controls.patientGroup.value !== ''?  "Update patient details" : "Save new patient"}}
+          </button>
+        </td>
+        <td>
+          <button *ngIf="patient.id != -1 && this.patientForm.controls.patientGroup.value !== ''" type="button" name="patRqFormBtn" class="button deletePatient"
+                  (click)="deletePatDetails()">Delete
+            patient
+          </button>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>

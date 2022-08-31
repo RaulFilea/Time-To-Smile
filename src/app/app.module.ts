@@ -22,6 +22,7 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { ManagePatientsComponent } from './manage-patients/manage-patients.component';
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {MatIconModule} from "@angular/material/icon";
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import {MatIconModule} from "@angular/material/icon";
     CreateAppointmentComponent,
     FilterTableComponent,
     ManagePatientsComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
